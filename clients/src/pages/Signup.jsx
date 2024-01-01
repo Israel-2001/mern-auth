@@ -11,8 +11,8 @@ export default function SignUp() {
     console.log(formData);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       setLoading(true);
       setError(false);
