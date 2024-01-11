@@ -45,8 +45,8 @@ export default function Profile() {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setImagePercent(Math.round(progress));
       },
-      // eslint-disable-next-line no-unused-vars
-      (err) => {
+      
+      () => {
         setImageError(true);
       },
       () => {
@@ -139,7 +139,10 @@ export default function Profile() {
           ) : imagePercent > 0 && imagePercent < 100 ? (
             <span className='text-slate-700'>{`Uploading: ${imagePercent} %`}</span>
           ) : imagePercent === 100 ? (
-            <span className='text-green-700'>Image uploaded successfully</span>
+            <>
+              <span className='text-green-700 text-center mx-auto'>Image uploaded successfully</span>
+              <p className="text-green-700 text-center mx-auto">Click on update to update your profile picture</p>
+            </>
           ) : (
             ''
           )}
@@ -170,6 +173,7 @@ export default function Profile() {
         <button className='bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>
           {loading ? 'Loading...' : 'Update'}
         </button>
+
       </form>
       <div className='flex justify-between mt-5'>
         <span
